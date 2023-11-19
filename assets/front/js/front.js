@@ -17,7 +17,6 @@ jQuery(function($){
 
         $(".hour-picker").on( "click", ".cbs-hour", function () {
             var room = $(this).find('.cbs-room');
-            room.toggle();
             //exclude disable element I mean previes booked
             if (!$(this).hasClass("disable")) {
                 //if click on the same hour
@@ -25,10 +24,12 @@ jQuery(function($){
                     $(this).removeClass("active");
                     $(this).removeAttr('data');
                     activeCount--;
+                    room.hide();
                 }else if(activeCount < maxActiveCount){
                     $(this).attr("data", "true");
                     activeCount++;
                     $(this).addClass("active");
+                    room.toggle();
                 }
             }
         });
