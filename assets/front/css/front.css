@@ -85,7 +85,7 @@
     font-weight: bold;
     color: #000;
 }
-.cbs-form-area{
+.cbs-form-area {
     display: flex;
     align-items: flex-start;
     justify-content: space-evenly;
@@ -106,9 +106,15 @@
 .active{
     color:#2196f3;
 }
-.btn-area{
+.all-button{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-top: 50px;
+}
+.content {
+    display: none;
+}
+.blue {
+    color: blue;
 }
 /**=== End main shortcode style ===*/
