@@ -1,7 +1,6 @@
 jQuery(function($){
 
     $(document).ready(function () {
-
         $(".cbs-room").hide();
 
         $('#calendar').datepicker({
@@ -9,10 +8,23 @@ jQuery(function($){
             firstDay: 1,
             showOtherMonths:true,
             dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-            dateFormat: 'dd/mm/yy',
+            dateFormat: 'yymmdd',
             minDate: new Date(), maxDate: new Date("2023-11-30"),
             onSelect: function(date) {
-                console.log(date);
+
+                //ajax request
+                $.post(CBS_ajax.url, {
+                    action: 'cbs_get_posts_by_date',
+                    _nonce: CBS_ajax.nonce,
+                    cbs_date: date,
+                }, function(response) {
+
+                    if(response) {
+
+                        $('.hour-picker').empty().append(response);
+                    }
+                    console.log(response);
+                });
             }
         });
 

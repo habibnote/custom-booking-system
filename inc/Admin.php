@@ -26,8 +26,8 @@ class Admin{
         unset( $columns['date'] );
 
         //Set Extra columns in product table
-        $columns['slot_hour']   = 'Hour';
         $columns['slot']        = 'Slot';
+        $columns['slot_hour']   = 'Hour';
         $columns['price']       = 'Price';
         $columns['date']        = 'Date';
 

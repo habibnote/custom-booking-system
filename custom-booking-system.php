@@ -64,10 +64,10 @@ final class CBS {
             wp_enqueue_script( 'cbs-front-js', plugins_url( 'assets/front/js/front.js', __FILE__ ), ['jquery','jquery-ui-datepicker'], time(), true );
 
             //put data into javascript file
-            wp_localize_script('my-script', 'ajaxURL', array(
-                'ajax_url'  => admin_url( 'admin-ajax.php' ),
+            wp_localize_script( 'cbs-front-js', 'CBS_ajax', array(
+                'url'       => admin_url( 'admin-ajax.php' ),
                 'nonce'     => wp_create_nonce( 'cbs_nonce' ),
-            ));
+            ) );
         }
     }
 

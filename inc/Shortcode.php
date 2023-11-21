@@ -6,8 +6,68 @@ class Shortcode{
 
     function __construct(){
         add_shortcode( 'cbs_main', [$this, 'cbs_shortcode'] );
-        
+        add_action( 'wp_ajax_cbs_get_posts_by_date', [$this, 'cbs_date_meta_process'] );
     }
+
+    /**
+     * Date meta process
+     */
+    function cbs_date_meta_process() {
+
+        $cbs_date   = $_POST['cbs_date'];
+        $cbs_nonce  = $_POST['_nonce'];
+
+        if( wp_verify_nonce( $cbs_nonce, 'cbs_nonce' ) ) {
+            ?>
+                <div class="left-area">
+                    <div class="cbs-hour"><?php esc_attr_e( 'Morning', 'cbs' ); ?></div>
+                    <?php 
+                        $terms = get_terms( 'slot_hour', array( 'hide_empty' => false ) );
+                        $i = 0;
+                        foreach( $terms as $term ) {
+                            ?>
+                                <div class="cbs-hour">
+                                    <p><?php esc_html_e( $term->name ); ?></p>
+                                    <div class="cbs-room">
+                                        <?php cbs_slot_loop( $term->name, $cbs_date ); ?>
+                                    </div>
+                                </div>
+
+                            <?php 
+                            $i++;
+                            if( $i > 6 ) {
+                                break;
+                            }
+                        }
+                    ?>
+                </div>
+                <div class="right-area">
+                    <div class="cbs-hour disable"><?php esc_html_e( 'Afrernoon', 'cbs' ); ?></div>
+                    <?php 
+
+                        $i = 0;
+                        foreach( $terms as $term ) {
+                            $i++;
+                            if( $i < 8 ) {
+                                continue;
+                            }
+                            ?>
+                                <div class="cbs-hour">
+                                    <p><?php esc_html_e( $term->name ); ?></p>
+                                    <div class="cbs-room">
+                                        <?php cbs_slot_loop( $term->name, $cbs_date ); ?>
+                                    </div>
+                                </div>
+
+                            <?php 
+                        }
+                    ?>
+                </div>
+            <?php
+        }
+        die();
+    }
+
     /**
      * Main Shortcode
      */
@@ -29,89 +89,7 @@ class Shortcode{
                     </div>
                 </div>
                 <div class="hour-picker">
-                    <div class="left-area">
-                        <div class="cbs-hour"><?php esc_attr_e( 'Morning', 'cbs' ); ?></div>
-                        <?php 
-                            $terms = get_terms( 'slot_hour', array( 'hide_empty' => false ) );
-                            $i = 0;
-                            foreach( $terms as $term ) {
-                                ?>
-                                    <div class="cbs-hour">
-                                        <p><?php esc_html_e( $term->name ); ?></p>
-
-                                        <div class="cbs-room">
-
-                                            <?php 
-                                                $args = array(
-                                                    'tax_query' => array(
-                                                        array(
-                                                            'taxonomy'  => 'slot_hour',
-                                                            'field'     => 'slug',
-                                                            'terms'     => $term->name,
-                                                        ),
-                                                    ),
-                                                );
-                                                $query = new \WP_Query($args);
-                                                while( $query->have_posts() ) {
-                                                    $query->the_post();
-                                                    ?>
-                                                        <p class="cbs-single-room" id="<?php esc_html_e( get_the_ID() ); ?>"><?php the_title(); ?></p>
-                                                    <?php 
-                                                }
-                                                wp_reset_postdata();
-                                            ?>
-                                        </div>
-                                    </div>
-
-                                <?php 
-                                $i++;
-                                if( $i > 6 ) {
-                                    break;
-                                }
-                            }
-                        ?>
-                    </div>
-                    <div class="right-area">
-                        <div class="cbs-hour disable"><?php esc_html_e( 'Afrernoon', 'cbs' ); ?></div>
-                        <?php 
-                            $terms = get_terms( 'slot_hour', array( 'hide_empty' => false ) );
-
-                            $i = 0;
-                            foreach( $terms as $term ) {
-                                $i++;
-                                if( $i < 8 ) {
-                                    continue;
-                                }
-                                ?>
-                                    <div class="cbs-hour">
-                                        <p><?php esc_html_e( $term->name ); ?></p>
-                                        <div class="cbs-room">
-                                            <?php 
-                                                $args = array(
-                                                    'tax_query' => array(
-                                                        array(
-                                                            'taxonomy'  => 'slot_hour',
-                                                            'field'     => 'slug',
-                                                            'terms'     => $term->name,
-                                                        ),
-                                                    ),
-                                                );
-                                                $query = new \WP_Query($args);
-                                                while( $query->have_posts() ) {
-                                                    $query->the_post();
-                                                    ?>
-                                                        <p class="cbs-single-room" id="<?php esc_html_e( get_the_ID() ); ?>"><?php the_title(); ?></p>
-                                                    <?php 
-                                                }
-                                                wp_reset_postdata();
-                                            ?>
-                                        </div>
-                                    </div>
-
-                                <?php 
-                            }
-                        ?>
-                    </div>
+                        
                 </div>
             </div>
 
