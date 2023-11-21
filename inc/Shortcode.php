@@ -53,9 +53,8 @@ class Shortcode{
                                                 $query = new \WP_Query($args);
                                                 while( $query->have_posts() ) {
                                                     $query->the_post();
-
                                                     ?>
-                                                        <p id="<?php esc_html_e( get_the_ID() ); ?>"><?php the_title(); ?></p>
+                                                        <p class="cbs-single-room" id="<?php esc_html_e( get_the_ID() ); ?>"><?php the_title(); ?></p>
                                                     <?php 
                                                 }
                                                 wp_reset_postdata();
@@ -72,7 +71,7 @@ class Shortcode{
                         ?>
                     </div>
                     <div class="right-area">
-                        <div class="cbs-hour disable">Afrernoon</div>
+                        <div class="cbs-hour disable"><?php esc_html_e( 'Afrernoon', 'cbs' ); ?></div>
                         <?php 
                             $terms = get_terms( 'slot_hour', array( 'hide_empty' => false ) );
 
@@ -100,7 +99,7 @@ class Shortcode{
                                                 while( $query->have_posts() ) {
                                                     $query->the_post();
                                                     ?>
-                                                        <p id="<?php esc_html_e( get_the_ID() ); ?>"><?php the_title(); ?></p>
+                                                        <p class="cbs-single-room" id="<?php esc_html_e( get_the_ID() ); ?>"><?php the_title(); ?></p>
                                                     <?php 
                                                 }
                                                 wp_reset_postdata();
