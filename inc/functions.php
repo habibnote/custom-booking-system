@@ -20,6 +20,7 @@ if( ! function_exists( 'cbs_slot_loop' ) ) {
                     'compare'   => '=',
                 ),
             ),
+            'order' => 'ASC',
         );
         $query = new \WP_Query($args);
         if( $query->have_posts() ) {

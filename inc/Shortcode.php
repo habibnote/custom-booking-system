@@ -89,7 +89,50 @@ class Shortcode{
                     </div>
                 </div>
                 <div class="hour-picker">
-                        
+                <div class="left-area">
+                    <div class="cbs-hour"><?php esc_attr_e( 'Morning', 'cbs' ); ?></div>
+                        <?php 
+                            $terms = get_terms( 'slot_hour', array( 'hide_empty' => false ) );
+                            $i = 0;
+                            foreach( $terms as $term ) {
+                                ?>
+                                    <div class="cbs-hour">
+                                        <p><?php esc_html_e( $term->name ); ?></p>
+                                        <div class="cbs-room">
+                                            <?php cbs_slot_loop( $term->name, date('Ymd') ); ?>
+                                        </div>
+                                    </div>
+
+                                <?php 
+                                $i++;
+                                if( $i > 6 ) {
+                                    break;
+                                }
+                            }
+                        ?>
+                    </div>
+                    <div class="right-area">
+                        <div class="cbs-hour disable"><?php esc_html_e( 'Afrernoon', 'cbs' ); ?></div>
+                        <?php 
+
+                            $i = 0;
+                            foreach( $terms as $term ) {
+                                $i++;
+                                if( $i < 8 ) {
+                                    continue;
+                                }
+                                ?>
+                                    <div class="cbs-hour">
+                                        <p><?php esc_html_e( $term->name ); ?></p>
+                                        <div class="cbs-room">
+                                            <?php cbs_slot_loop( $term->name, date('Ymd') ); ?>
+                                        </div>
+                                    </div>
+
+                                <?php 
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
 
