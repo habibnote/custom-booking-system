@@ -99,6 +99,9 @@
     padding: 2px 10px;
     cursor: pointer;
 }
+.cbs-hour p{
+    margin-bottom: 0;
+}
 .disable{
     color:#ddd;
     cursor:default;

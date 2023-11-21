@@ -8,7 +8,7 @@
  * Requires PHP:      7
  * Author:            Md. Habib
  * Author URI:        https://me.habibnote.com
- * Text Domain:       my-basics-plugin
+ * Text Domain:       cbs
  * Domain Path:       /languages
 */
 
@@ -18,9 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
-//load autoloader
-require_once "vendor/autoload.php";
-
 /**
  * Plugin Main class
  */
@@ -29,6 +26,10 @@ final class CBS {
     static $instance = false;
 
     function __construct() {
+
+        //load autoloader
+        require_once "vendor/autoload.php";
+        require_once "inc/functions.php";
 
         //load all hooks
         $this->hooks();

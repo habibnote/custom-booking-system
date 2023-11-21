@@ -113,14 +113,6 @@ jQuery(function($){
             }  else {
                 $(".prev-area button").prop('disabled', true);
             }
-            
         });
-
-
-
-
-
     });
-    
-
 });
