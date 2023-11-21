@@ -6,6 +6,7 @@ class Shortcode{
 
     function __construct(){
         add_shortcode( 'cbs_main', [$this, 'cbs_shortcode'] );
+        
     }
     /**
      * Main Shortcode

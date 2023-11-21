@@ -42,10 +42,11 @@ final class CBS {
 
         //load all assets
         add_action( 'wp_enqueue_scripts', [$this, 'cbs_load_front_assets'] );
-        add_action( 'wp admin_enqueue_scripts', [$this, 'cbs_load_admin_enqueue_script'] );
+        // add_action( 'wp admin_enqueue_scripts', [$this, 'cbs_load_admin_enqueue_script'] );
         
         new Src\Admin();
         new Src\Shortcode();
+        new Src\Ajax();
     }
 
     /**
@@ -61,6 +62,12 @@ final class CBS {
 
             //load all js
             wp_enqueue_script( 'cbs-front-js', plugins_url( 'assets/front/js/front.js', __FILE__ ), ['jquery','jquery-ui-datepicker'], time(), true );
+
+            //put data into javascript file
+            wp_localize_script('my-script', 'ajaxURL', array(
+                'ajax_url'  => admin_url( 'admin-ajax.php' ),
+                'nonce'     => wp_create_nonce( 'cbs_nonce' ),
+            ));
         }
     }
 

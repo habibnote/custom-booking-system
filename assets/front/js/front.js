@@ -8,7 +8,12 @@ jQuery(function($){
             inline:true,
             firstDay: 1,
             showOtherMonths:true,
-            dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+            dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            dateFormat: 'dd/mm/yy',
+            minDate: new Date(), maxDate: new Date("2023-11-30"),
+            onSelect: function(date) {
+                console.log(date);
+            }
         });
 
         //This is for hour picker
@@ -44,7 +49,7 @@ jQuery(function($){
             }else{
                 console.log("Please select a hour");
             }
-            
+
             let date = $('#calendar').val();
             console.log(date);
         });
