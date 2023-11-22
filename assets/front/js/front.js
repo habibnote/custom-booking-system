@@ -10,7 +10,7 @@ jQuery(function($){
             showOtherMonths:true,
             dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
             dateFormat: 'yymmdd',
-            minDate: new Date(), maxDate: new Date("2023-11-30"),
+            minDate: new Date("2023-11-21"), maxDate: new Date("2023-11-30"),
             onSelect: function(date) {
 
                 //ajax request

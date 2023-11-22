@@ -128,7 +128,6 @@ class Shortcode{
                                             <?php cbs_slot_loop( $term->name, date('Ymd') ); ?>
                                         </div>
                                     </div>
-
                                 <?php 
                             }
                         ?>
