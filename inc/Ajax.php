@@ -17,8 +17,16 @@ class Ajax{
 
         //verify nonce 
         if( wp_verify_nonce( $nonce, 'cbs_nonce_p' ) ) {
-            echo $product_id;
+            // echo $product_id;
 
+            if( wc_get_product( $product_id ) ) {
+                // Add the product to the cart
+                WC()->cart->add_to_cart( $product_id );
+
+                wp_send_json_success();
+            }else{
+                wp_send_json_error();
+            }
             die();
         }
     }

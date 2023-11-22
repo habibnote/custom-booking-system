@@ -12,8 +12,8 @@ jQuery(function($){
                 _nonce: CBS_ajax.nonce,
                 productId: productId,
             }, function(response) {
-                if(response) {
-                    console.log(response);
+                if(response.success) {
+                    console.log( "product added success" );
                 }
             });
         });
