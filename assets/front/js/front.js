@@ -1,8 +1,9 @@
 jQuery(function($){
 
     $(document).ready(function () {
-        $(".cbs-room").hide();
+        // $(".cbs-room").hide();
 
+        //calender ajax
         $('#calendar').datepicker({
             inline:true,
             firstDay: 1,
@@ -29,27 +30,29 @@ jQuery(function($){
         });
 
         //This is for hour picker
-        var maxActiveCount = 4;
-        var activeCount = 0;
+        // var maxActiveCount = 4;
+        // var activeCount = 0;
 
-        $(".hour-picker").on( "click", ".cbs-hour", function () {
-            var room = $(this).find('.cbs-room');
-            //exclude disable element I mean previes booked
-            if (!$(this).hasClass("disable")) {
-                //if click on the same hour
-                if($(this).attr("data") === "true") {
-                    $(this).removeClass("active");
-                    $(this).removeAttr('data');
-                    activeCount--;
-                    room.hide();
-                }else if(activeCount < maxActiveCount){
-                    $(this).attr("data", "true");
-                    activeCount++;
-                    $(this).addClass("active");
-                    room.toggle();
-                }
-            }
-        });
+        // $(".hour-picker").on( "click", ".cbs-hour", function () {
+        //     var room = $(this).find('.cbs-room');
+        //     //exclude disable element I mean previes booked
+        //     if (!$(this).hasClass("disable")) {
+        //         //if click on the same hour
+        //         if($(this).attr("data") === "true") {
+        //             $(this).removeClass("active");
+        //             $(this).removeAttr('data');
+        //             activeCount--;
+        //             room.hide();
+        //         }else if(activeCount < maxActiveCount){
+        //             $(this).attr("data", "true");
+        //             activeCount++;
+        //             $(this).addClass("active");
+        //             room.toggle();
+        //         }
+        //     }
+        // });
+
+
         $('#btn').on('click', function() {
 
             let activeChildren = $(".cbs-hour[data='true']");
