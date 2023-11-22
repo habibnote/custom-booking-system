@@ -7,11 +7,15 @@
                 // Get cart items
                 $cart_items = $cart->get_cart();
                 foreach ($cart_items as $cart_item_key => $cart_item) {
+
+                    $product_id     = $cart_item['product_id'];
+                    $slot           = get_field( 'slot_date', $product_id, true );
+
                     ?>
                     <div class="cbs-single-slot">
                         
                         <div class="cbs-slot-date">
-                            <p> 2023/03/12</p>
+                            <p> <?php esc_html_e( '▪ ' . $slot ); ?> </p>
                         </div>
                         /
                         <div class="cbs-slot-hour">
@@ -23,7 +27,7 @@
                         </div>
                         /
                         <div class="cbs-remove-room">
-                            <button product-id=""><?php esc_html_e( 'Remove', 'cbs' ); ?></button>
+                            <button class="cbs-btn" product-id=""><?php esc_html_e( 'Remove', 'cbs' ); ?></button>
                         </div>
                     </div>
                     <?php 

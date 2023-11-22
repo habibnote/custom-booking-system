@@ -162,3 +162,13 @@
 .cbs-single-slot p{
     margin-bottom: 0;
 }
+.cbs-btn{
+    border: 1px solid crimson;
+    background: transparent;
+    color: crimson;
+}
+.cbs-btn:hover{
+    background: transparent;
+    border: 1px solid red;
+    color: red;
+}
