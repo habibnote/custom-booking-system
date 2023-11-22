@@ -142,3 +142,23 @@
 .ui-datepicker-title{
     padding:0;
 }
+
+
+/*== Start review section ==*/
+.cbs-all-slots-cart{
+    max-width: 100%;
+    margin: 20px;
+}
+.cbs-all-slot-list{
+    border: 2px solid #222;
+    padding: 20px;
+}
+.cbs-single-slot{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.cbs-single-slot p{
+    margin-bottom: 0;
+}

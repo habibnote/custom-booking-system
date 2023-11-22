@@ -31,14 +31,24 @@ final class CBS {
         require_once "vendor/autoload.php";
         require_once "inc/functions.php";
 
+        $this->define();
         //load all hooks
         $this->hooks();
     }
 
     /**
+     * define all constant
+     */
+    private function define() {
+        define( 'CBS', __FILE__ );
+        define( 'CBS_DIR', dirname( CBS ) );
+        define( 'CBS_ASSET', plugins_url( 'assets', CBS ) );
+    }
+
+    /**
      * All hooks
      */
-    function hooks() {
+    private function hooks() {
 
         //load all assets
         add_action( 'wp_enqueue_scripts', [$this, 'cbs_load_front_assets'] );
@@ -71,7 +81,7 @@ final class CBS {
             ) );
             wp_localize_script( 'cbs-ajax-js', 'CBS_ajax', array(
                 'url'       => admin_url( 'admin-ajax.php' ),
-                'nonce'     => wp_create_nonce( 'cbs_nonce_p' ),
+                'nonce'     => wp_create_nonce( 'cbs_nonce' ),
             ) );
         }
     }

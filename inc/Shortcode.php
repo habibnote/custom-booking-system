@@ -136,7 +136,7 @@ class Shortcode{
             </div>
 
             <div class="review-area content">
-                <h3>This is review area</h3>
+                <?php include_once( CBS_DIR . "/template/review.php" );?>
             </div>
 
             <div class="payment-area content">

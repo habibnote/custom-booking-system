@@ -52,7 +52,6 @@ jQuery(function($){
         //     }
         // });
 
-
         $('#btn').on('click', function() {
 
             let activeChildren = $(".cbs-hour[data='true']");

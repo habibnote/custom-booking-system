@@ -16,7 +16,7 @@ class Ajax{
         $nonce      = $_POST['_nonce'];
 
         //verify nonce 
-        if( wp_verify_nonce( $nonce, 'cbs_nonce_p' ) ) {
+        if( wp_verify_nonce( $nonce, 'cbs_nonce' ) ) {
             // echo $product_id;
 
             if( wc_get_product( $product_id ) ) {
