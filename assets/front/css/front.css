@@ -101,6 +101,7 @@
     margin: 10px;
     padding: 2px 10px;
     cursor: pointer;
+    width: 100px;
 }
 .cbs-hour p{
     margin-bottom: 0;
