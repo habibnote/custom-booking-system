@@ -1,3 +1,6 @@
+.cbs-container{
+    max-width: 830px !important;
+}
 /* === Start Css Code for calender ===*/
 .date-picker-container{
     width:400px;
@@ -121,3 +124,20 @@
     color: blue;
 }
 /**=== End main shortcode style ===*/
+
+
+/*Clender color default style modify*/
+.ui-state-disabled .ui-state-default{
+    color: #ddd;
+}
+.ui-state-active{
+    border:1px solid #2196f3;
+    border-radius: 50%;
+    padding: 5px;
+}
+.ui-state-default{
+    text-decoration: none !important;
+}
+.ui-datepicker-title{
+    padding:0;
+}
