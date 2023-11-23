@@ -7,6 +7,21 @@ class Shortcode{
     function __construct(){
         add_shortcode( 'cbs_main', [$this, 'cbs_shortcode'] );
         add_action( 'wp_ajax_cbs_get_posts_by_date', [$this, 'cbs_date_meta_process'] );
+        add_action( 'wp_ajax_cbs_remove_product_from_cart', [$this, 'cbs_remove_product_from_cart'] );
+    }
+
+    /**
+     * Remove product form cart
+     */
+    function cbs_remove_product_from_cart() {
+        $nonce      = $_POST['_nonce'];
+        $product_id = $_POST['product_ID_r'];
+
+        if( wp_verify_nonce( $nonce, 'cbs_nonce' ) ) {
+            
+            
+            die();
+        }
     }
 
     /**

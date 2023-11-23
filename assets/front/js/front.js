@@ -135,3 +135,25 @@ jQuery(function($){
         });
     });
 });
+
+//review page
+jQuery(function($){
+    $(document).ready(function () {
+        $('.cbs-btn').on('click', function(){
+            
+            let productId = $(this).attr('product-id');
+
+            $.post(CBS_ajax.url, {
+                action: 'cbs_remove_product_from_cart',
+                _nonce: CBS_ajax.nonce,
+                product_ID_r: productId,
+            }, function(response) {
+
+                if(response) {
+                    console.log(response);
+                }
+                console.log(response);
+            });
+        });
+    });
+});
