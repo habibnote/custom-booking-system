@@ -1,8 +1,13 @@
 jQuery(function($){
 
     $(document).ready(function () {
-        // $(".cbs-room").hide();
-
+        function cbs_room_toggle() {
+            $(".cbs-room").hide();
+            $('.cbs-hour p').on('click', function () {
+                $(this).next('.cbs-room').slideToggle();
+            });
+        }
+        cbs_room_toggle();
         //calender ajax
         $('#calendar').datepicker({
             inline:true,
@@ -21,44 +26,19 @@ jQuery(function($){
                 }, function(response) {
 
                     if(response) {
-
                         $('.hour-picker').empty().append(response);
+                        cbs_room_toggle();
                     }
                     console.log(response);
                 });
             }
         });
 
-        //This is for hour picker
-        // var maxActiveCount = 4;
-        // var activeCount = 0;
-
-        // $(".hour-picker").on( "click", ".cbs-hour", function () {
-        //     var room = $(this).find('.cbs-room');
-        //     //exclude disable element I mean previes booked
-        //     if (!$(this).hasClass("disable")) {
-        //         //if click on the same hour
-        //         if($(this).attr("data") === "true") {
-        //             $(this).removeClass("active");
-        //             $(this).removeAttr('data');
-        //             activeCount--;
-        //             room.hide();
-        //         }else if(activeCount < maxActiveCount){
-        //             $(this).attr("data", "true");
-        //             activeCount++;
-        //             $(this).addClass("active");
-        //             room.toggle();
-        //         }
-        //     }
-        // });
-
         $('#btn').on('click', function() {
-
             let activeChildren = $(".cbs-hour[data='true']");
             if (activeChildren.length > 0) {
                 activeChildren.each(function () {
                     let value = $(this).text();
-                    console.log(value);
                 });
             }else{
                 console.log("Please select a hour");

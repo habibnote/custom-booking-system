@@ -52,7 +52,7 @@ final class CBS {
     private function hooks() {
 
         //load all assets
-        add_action( 'wp_enqueue_scripts', [$this, 'cbs_load_front_assets'] );
+        add_action( 'wp_enqueue_scripts', [ $this, 'cbs_load_front_assets' ] );
         // add_action( 'wp admin_enqueue_scripts', [$this, 'cbs_load_admin_enqueue_script'] );
         
         new Src\Admin();
