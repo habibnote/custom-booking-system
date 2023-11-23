@@ -1,6 +1,7 @@
 jQuery(function($){
 
     $(document).ready(function () {
+        /** start Sanjida**/
         function cbs_room_toggle() {
             $(".cbs-room").hide();
             $('.cbs-hour p').on('click', function () {
@@ -8,6 +9,8 @@ jQuery(function($){
             });
         }
         cbs_room_toggle();
+        /** end Sanjida**/
+
         //calender ajax
         $('#calendar').datepicker({
             inline:true,
@@ -26,8 +29,10 @@ jQuery(function($){
                 }, function(response) {
 
                     if(response) {
+                        /** start Sanjida**/
                         $('.hour-picker').empty().append(response);
                         cbs_room_toggle();
+                        /** end Sanjida**/
                     }
                     console.log(response);
                 });
@@ -51,7 +56,9 @@ jQuery(function($){
         if ($(".cbs-form-area").is(":visible")) {
             $(".cbs-selected-tab").addClass("blue");
         }
+        /** start Sanjida**/
         $(".prev-area #btn").hide();
+        /** end Sanjida**/
         $(".btn-area").on("click", function () {
             // Check which area is currently visible
             if ($(".cbs-form-area").is(":visible")) {
@@ -59,7 +66,9 @@ jQuery(function($){
                 $(".cbs-form-area").hide();
                 $(".confirm-area").hide();
                 $(".review-area").show();
+                /** start Sanjida**/
                 $(".prev-area #btn").show();
+                /** end Sanjida**/
                 $(".cbs-selected-tab").removeClass("blue");
                 $(".cbs-review-tab").addClass("blue");
                 $(".prev-area button").prop('disabled', false);
@@ -76,8 +85,10 @@ jQuery(function($){
                 $(".review-area").hide();
                 $(".payment-area").hide();
                 $(".confirm-area").show();
+                /** start Sanjida**/
                 $(".btn-area #btn").text("Finish");
                 $(".prev-area #btn").hide();
+                /** end Sanjida**/
                 $(".prev-area button").prop('disabled', false);
                 $(".cbs-payment-tab").removeClass("blue");
                 $(".cbs-confirm-tab").addClass("blue");
@@ -92,7 +103,9 @@ jQuery(function($){
                 $(".payment-area").hide();
                 $(".review-area").hide();
                 $(".confirm-area").hide();
+                /** start Sanjida**/
                 $(".prev-area #btn").hide();
+                /** end Sanjida**/
                 $(".cbs-selected-tab").addClass("blue");
                 $(".cbs-review-tab").removeClass("blue");
 
