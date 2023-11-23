@@ -30,6 +30,7 @@ final class CBS {
         //load autoloader
         require_once "vendor/autoload.php";
         require_once "inc/functions.php";
+        require_once "inc/ACF.php";
 
         $this->define();
         //load all hooks
