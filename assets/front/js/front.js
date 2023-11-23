@@ -51,6 +51,7 @@ jQuery(function($){
         if ($(".cbs-form-area").is(":visible")) {
             $(".cbs-selected-tab").addClass("blue");
         }
+        $(".prev-area #btn").hide();
         $(".btn-area").on("click", function () {
             // Check which area is currently visible
             if ($(".cbs-form-area").is(":visible")) {
@@ -58,6 +59,7 @@ jQuery(function($){
                 $(".cbs-form-area").hide();
                 $(".confirm-area").hide();
                 $(".review-area").show();
+                $(".prev-area #btn").show();
                 $(".cbs-selected-tab").removeClass("blue");
                 $(".cbs-review-tab").addClass("blue");
                 $(".prev-area button").prop('disabled', false);
@@ -74,6 +76,8 @@ jQuery(function($){
                 $(".review-area").hide();
                 $(".payment-area").hide();
                 $(".confirm-area").show();
+                $(".btn-area #btn").text("Finish");
+                $(".prev-area #btn").hide();
                 $(".prev-area button").prop('disabled', false);
                 $(".cbs-payment-tab").removeClass("blue");
                 $(".cbs-confirm-tab").addClass("blue");
@@ -88,6 +92,7 @@ jQuery(function($){
                 $(".payment-area").hide();
                 $(".review-area").hide();
                 $(".confirm-area").hide();
+                $(".prev-area #btn").hide();
                 $(".cbs-selected-tab").addClass("blue");
                 $(".cbs-review-tab").removeClass("blue");
 
