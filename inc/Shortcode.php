@@ -140,7 +140,7 @@ class Shortcode{
             </div>
 
             <div class="payment-area content">
-                <h3>This is Payment area</h3>
+                <?php include_once( CBS_DIR . "/template/payment.php" );?>
             </div>
 
             <div class="confirm-area content">
