@@ -174,4 +174,22 @@
 }
 
 /*==DISCOUNT CODE STYLE==*/
+.cbs-total-and-discount-code-area{
+    margin-top: 20px;
+
+}
+.cbs-sub-total-label{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.discount-code-area{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.cbs-total-price{
+    display:flex;
+    justify-content: flex-end;
+}
 /*==END CODE STYLE==*/
