@@ -51,10 +51,28 @@
                         <div class="cbs-single-cost cbs-sub-total-label">
                             <label><?php esc_html_e( 'Total Cost', 'cbs' );?></label>
                             <?php 
-
                                 $cart       = WC()->cart;
-                                $cart_total = $cart->subtotal;
-                                $total      = $cart->total;
+                                $cart_total = wc_price( $cart->subtotal );
+                                $total      = wc_price( $cart->total );
+
+                                $woocommerce = WC();
+                                // Check if there are applied coupons
+                                if (count($woocommerce->cart->get_applied_coupons()) > 0) {
+                                    // Get the applied coupons
+                                    $applied_coupons = $woocommerce->cart->get_applied_coupons();
+
+                                    // Loop through applied coupons
+                                    foreach ($applied_coupons as $coupon_code) {
+                                        // Get the coupon object
+                                        $coupon = new WC_Coupon($coupon_code);
+
+                                        // Get the coupon discount amount
+                                        $discount_amount = $coupon->get_amount();
+
+                                        $discount_amount = wc_price( $discount_amount );
+                                    }
+                                }
+
                             ?>
 
                             <span><?php echo wp_kses_post( $cart_total ) ?></span>
@@ -67,7 +85,11 @@
                                 <span class="cbs-co-message"></span>
                             </div>
                             <div class="cbs-discount-price">
-                                <span> 0</span>
+                                <span>
+                                    <?php 
+                                        echo  esc_html( "-" ) . wp_kses_post( $discount_amount );
+                                    ?>
+                                </span>
                             </div>
                         </div>
                         <div class="cbs-single-cost cbs-total-price">
