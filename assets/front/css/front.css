@@ -196,3 +196,9 @@
     justify-content: flex-end;
 }
 /*==END CODE STYLE==*/
+
+.all-button{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}

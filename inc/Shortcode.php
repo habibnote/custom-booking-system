@@ -77,8 +77,12 @@ class Shortcode{
             </div>
 
             <div class="all-button">
-                <div class="btn-area">
-                    <a href="http://localhost:10014/review/">Next</a>
+                <div class="next-btn-area">
+                    <a href="http://localhost:10014/review/"> 
+                        <button> 
+                            <?php esc_html_e( 'Next', 'esc' ); ?>
+                        </button>
+                    </a>
                 </div>
             </div>
 
@@ -87,7 +91,7 @@ class Shortcode{
     }
 
     /**
-     * 
+     * Review Page
      */
     function cbs_review() {
         ?>
@@ -102,10 +106,18 @@ class Shortcode{
 
                 <div class="all-button">
                     <div class="prev-area">
-                        <a href="http://localhost:10014/booking/">Prev</a>
+                        <a href="http://localhost:10014/booking/">
+                            <button> 
+                                <?php esc_html_e( 'Prev', 'cbs' );?>
+                            </button>
+                        </a>
                     </div>
-                    <div class="btn-area">
-                        <a href="http://localhost:10014/payment/">Next</a>
+                    <div class="next-btn-area">
+                        <a href="http://localhost:10014/payment/">
+                             <button>
+                                <?php esc_html_e( 'Next', 'cbs' );?>
+                            </button>
+                            </a>
                     </div>
                 </div>
 
@@ -115,7 +127,7 @@ class Shortcode{
     }
 
     /**
-     * 
+     * Payment page
      */
     function cbs_payment() {
         ?>
@@ -130,7 +142,11 @@ class Shortcode{
 
                 <div class="all-button">
                     <div class="prev-area">
-                        <a href="http://localhost:10014/review/">Prev</a>
+                        <a href="http://localhost:10014/review/">
+                            <button>
+                                <?php esc_html_e( 'Prev', 'cbs' );?>
+                            </button>
+                        </a>
                     </div>
                 </div>
 
@@ -139,6 +155,9 @@ class Shortcode{
         <?php
     }
 
+    /**
+     * Confirmation Page
+     */
     function cbs_conformation() {
         ?>
 
