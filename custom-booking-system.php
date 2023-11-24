@@ -53,11 +53,25 @@ final class CBS {
 
         //load all assets
         add_action( 'wp_enqueue_scripts', [$this, 'cbs_load_front_assets'] );
-        // add_action( 'wp admin_enqueue_scripts', [$this, 'cbs_load_admin_enqueue_script'] );
+
+        add_filter('woocommerce_checkout_fields', [$this, 'custom_override_checkout_fields'] );
         
+        
+        // Remove address validation
+        add_filter('woocommerce_checkout_process', '__return_false');
+
         new Src\Admin();
         new Src\Shortcode();
         new Src\Ajax();
+    }
+
+    /**
+     * 
+     */
+    function custom_override_checkout_fields($fields) {
+        unset($fields['billing']);
+        unset($fields['shipping']);
+        return $fields;
     }
 
     /**

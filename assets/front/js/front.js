@@ -149,10 +149,9 @@ jQuery(function($){
                 product_ID_r: productId,
             }, function(response) {
 
-                if(response) {
-                    console.log(response);
+                if(response.success) {
+                    $(this).closest('.cbs-single-slot').hide();
                 }
-                console.log(response);
             });
         });
     });
