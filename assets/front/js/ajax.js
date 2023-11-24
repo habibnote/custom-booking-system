@@ -13,7 +13,7 @@ jQuery(function($){
                 productId: productId,
             }, function(response) {
                 if(response.success) {
-                    $(this).addClass('habib');
+                    // $(this).addClass('habib');
                     console.log( "product added success" );
                 }
             });

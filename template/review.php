@@ -53,7 +53,7 @@
                             <?php 
 
                                 $cart       = WC()->cart;
-                                $cart_total = $cart->get_cart_total();
+                                $cart_total = $cart->subtotal;
                                 $total      = $cart->total;
                             ?>
 
@@ -63,10 +63,11 @@
                             <div class="cbs-label">
                                 <label><?php esc_html_e( 'Discount Code', 'cbs' ); ?></label>
                                 <input id="cbs-apply-copuon" type="text">
-                                <button type="button"> <?php esc_html_e( 'Apply' ); ?> </button>
+                                <button id="cbs-apply-copuon-apply" type="button"> <?php esc_html_e( 'Apply' ); ?> </button>
+                                <span class="cbs-co-message"></span>
                             </div>
-                            <div class="price">
-                                <span> - $ 8</span>
+                            <div class="cbs-discount-price">
+                                <span> 0</span>
                             </div>
                         </div>
                         <div class="cbs-single-cost cbs-total-price">

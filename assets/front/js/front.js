@@ -165,3 +165,30 @@ jQuery(function($){
         });
     });
 });
+
+//review page
+jQuery(function($){
+    $(document).ready(function () {
+        
+        $('#cbs-apply-copuon-apply').on( 'click', function(){
+            let copouonCode = $('#cbs-apply-copuon').val();
+            
+
+            $.post(CBS_ajax.url, {
+                action: 'cbs_apply_oupon_code',
+                _nonce: CBS_ajax.nonce,
+                copouon_code: copouonCode,
+            }, function(response) {
+                if(response.success){
+                    console.log(response.data.amount);
+                    $('.cbs-co-message').append(response.data.message);
+                    if(response.data.amount){
+                        $('.cbs-discount-price').append(response.data.amount);
+                    }
+                }
+                // console.log(response);
+            });
+
+        });
+    });
+});
