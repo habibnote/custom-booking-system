@@ -138,7 +138,10 @@ class Shortcode{
                 <?php include_once( CBS_DIR . "/template/tab-menu.php" );?>
 
                 <div class="payment-area-content">
-                    <?php include_once( CBS_DIR . "/template/payment.php" );?>
+                    <?php 
+                        //include_once( CBS_DIR . "/template/payment.php" );
+                        echo do_shortcode( '[woocommerce_checkout]' );
+                    ?>
                 </div>
 
                 <div class="all-button">

@@ -54,6 +54,7 @@
                                 $cart       = WC()->cart;
                                 $cart_total = wc_price( $cart->subtotal );
                                 $total      = wc_price( $cart->total );
+                                $discount_amount = '';
 
                                 $woocommerce = WC();
                                 // Check if there are applied coupons
@@ -87,7 +88,9 @@
                             <div class="cbs-discount-price">
                                 <span>
                                     <?php 
-                                        echo  esc_html( "-" ) . wp_kses_post( $discount_amount );
+                                        if( $discount_amount ) {
+                                            echo  esc_html( "-" ) . wp_kses_post( $discount_amount );
+                                        }
                                     ?>
                                 </span>
                             </div>

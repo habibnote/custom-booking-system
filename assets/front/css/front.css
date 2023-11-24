@@ -219,3 +219,24 @@
     align-items: center;
     justify-content: flex-end;
 }
+
+
+/*Payment method style*/
+.cbs-container .woocommerce-notices-wrapper,
+.cbs-container .woocommerce-form-coupon-toggle{
+    display: none !important;
+}
+.cbs-container #customer_details{
+    display: none !important;
+}
+.cbs-container .woocommerce-checkout-review-order-table,
+.cbs-container .woocommerce-terms-and-conditions-wrapper,
+.cbs-container #order_review_heading{
+    display: none !important;
+}
+.cbs-container .woocommerce-checkout-review-order{
+    width: 100% !important;
+}
+.cbs-container .woocommerce-checkout-review-order{
+    border:none !important;
+}

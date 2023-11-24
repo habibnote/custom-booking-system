@@ -53,40 +53,10 @@ final class CBS {
 
         //load all assets
         add_action( 'wp_enqueue_scripts', [$this, 'cbs_load_front_assets'] );
-        add_action('woocommerce_before_checkout_process', [ $this,  'custom_fill_address_fields'] );
-        
-        // add_filter('woocommerce_checkout_fields', [$this, 'custom_override_checkout_fields'] );
-        
-        
-        // Remove address validation
-        // add_filter('woocommerce_checkout_process', '__return_false');
 
         new Src\Admin();
         new Src\Shortcode();
         new Src\Ajax();
-    }
-
-    /**
-     * FUll up all before order
-     */
-    function custom_fill_address_fields() {
-        // Get the current user
-        $user = wp_get_current_user();
-    
-        // Check if the user is logged in
-        if ($user->ID > 0) {
-            // Get the user's billing address
-            $billing_address = get_user_meta($user->ID, 'billing_address', true);
-    
-            // Get the user's shipping address
-            $shipping_address = get_user_meta($user->ID, 'shipping_address', true);
-    
-            // Set the billing address
-            WC()->customer->set_billing_address($billing_address['address_1'], $billing_address['address_2'], $billing_address['city'], $billing_address['postcode'], $billing_address['country'], $billing_address['state']);
-    
-            // Set the shipping address
-            WC()->customer->set_shipping_address($shipping_address['address_1'], $shipping_address['address_2'], $shipping_address['city'], $shipping_address['postcode'], $shipping_address['country'], $shipping_address['state']);
-        }
     }
 
     /**
