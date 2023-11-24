@@ -29,7 +29,6 @@ jQuery(function($){
                 }, function(response) {
 
                     if(response) {
-
                         $('.hour-picker').empty().append(response);
                         cbs_room_toggle();
                     }

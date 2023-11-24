@@ -4,7 +4,7 @@ jQuery(function($){
 
         //product adding ajax request
         $(document).on('click', '.cbs-single-room', function(){
-            let productId = $(this).attr('product-id');
+            let productId = $(this).attr('id');
             
             //ajax request
             $.post(CBS_ajax.url, {
@@ -13,8 +13,9 @@ jQuery(function($){
                 productId: productId,
             }, function(response) {
                 if(response.success) {
-                    // $(this).addClass('habib');
-                    console.log( "product added success" );
+                    if(response.data.product_id){
+                        $('#'+response.data.product_id).addClass('cbs-active');
+                    }
                 }
             });
         });

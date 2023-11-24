@@ -27,7 +27,7 @@ if( ! function_exists( 'cbs_slot_loop' ) ) {
             while( $query->have_posts() ) {
                 $query->the_post();
                 ?>
-                    <p class="cbs-single-room" product-id="<?php esc_html_e( get_the_ID() ); ?>"><?php the_title(); ?></p>
+                    <p class="cbs-single-room" id="<?php esc_html_e( get_the_ID() ); ?>"><?php the_title(); ?></p>
                 <?php 
             }
             wp_reset_postdata();

@@ -67,7 +67,11 @@ class Ajax{
                 // Add the product to the cart
                 WC()->cart->add_to_cart( $product_id );
 
-                wp_send_json_success();
+                wp_send_json_success(
+                    [
+                        'product_id' => $product_id,
+                    ]
+                );
             }else{
                 wp_send_json_error();
             }
