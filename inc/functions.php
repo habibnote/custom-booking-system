@@ -56,9 +56,19 @@ if( ! function_exists( 'cbs_slot_loop' ) ) {
         if( $query->have_posts() ) {
             while( $query->have_posts() ) {
                 $query->the_post();
-                ?>
-                    <p class="cbs-single-room" id="<?php esc_html_e( get_the_ID() ); ?>"><?php the_title(); ?></p>
-                <?php 
+
+                $product_id             = get_the_ID();
+                $all_ordered_product_id = cbs_all_ordered_product();
+
+                if( in_array( $product_id, $all_ordered_product_id ) ) {
+                    ?>
+                        <p class="cbs-single-room disable" id="<?php esc_html_e( $product_id ); ?>"><?php the_title(); ?></p>
+                    <?php 
+                }else{
+                    ?>
+                        <p class="cbs-single-room" id="<?php esc_html_e( $product_id ); ?>"><?php the_title(); ?></p>
+                    <?php 
+                }
             }
             wp_reset_postdata();
         }
