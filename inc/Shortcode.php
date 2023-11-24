@@ -81,18 +81,6 @@ class Shortcode{
                 </div>
             </div>
 
-            <div class="review-area content">
-                <?php include_once( CBS_DIR . "/template/review.php" );?>
-            </div>
-
-            <div class="payment-area content">
-                <?php include_once( CBS_DIR . "/template/payment.php" );?>
-            </div>
-
-            <div class="confirm-area content">
-                <h3>Thanks for your confirmation</h3>
-            </div>
-
             <div class="all-button">
                 <div class="prev-area">
                     <button type="button" id="btn">Prev</button>
@@ -113,6 +101,13 @@ class Shortcode{
         ?>
 
             <div class="cbs-container">
+
+                <div class="cbs-tab-section">
+                    <div class="cbs-tab cbs-selected-tab"><?php esc_html_e( 'Select Slots', 'cbs' ); ?></div> >
+                    <div class="cbs-tab cbs-review-tab"><?php esc_html_e( 'Review', 'cbs' ); ?></div> >
+                    <div class="cbs-tab cbs-payment-tab"><?php esc_html_e( 'Payment', 'cbs' ); ?></div> >
+                    <div class="cbs-tab cbs-confirm-tab"><?php esc_html_e( 'Confirmation', 'cbs' ); ?></div>
+                </div>
 
                 <div class="review-area content">
                     <?php include_once( CBS_DIR . "/template/review.php" );?>
@@ -140,6 +135,13 @@ class Shortcode{
 
             <div class="cbs-container">
 
+                <div class="cbs-tab-section">
+                    <div class="cbs-tab cbs-selected-tab"><?php esc_html_e( 'Select Slots', 'cbs' ); ?></div> >
+                    <div class="cbs-tab cbs-review-tab"><?php esc_html_e( 'Review', 'cbs' ); ?></div> >
+                    <div class="cbs-tab cbs-payment-tab"><?php esc_html_e( 'Payment', 'cbs' ); ?></div> >
+                    <div class="cbs-tab cbs-confirm-tab"><?php esc_html_e( 'Confirmation', 'cbs' ); ?></div>
+                </div>
+
                 <div class="payment-area content">
                     <?php include_once( CBS_DIR . "/template/payment.php" );?>
                 </div>
@@ -162,6 +164,13 @@ class Shortcode{
         ?>
 
             <div class="cbs-container">
+
+                <div class="cbs-tab-section">
+                    <div class="cbs-tab cbs-selected-tab"><?php esc_html_e( 'Select Slots', 'cbs' ); ?></div> >
+                    <div class="cbs-tab cbs-review-tab"><?php esc_html_e( 'Review', 'cbs' ); ?></div> >
+                    <div class="cbs-tab cbs-payment-tab"><?php esc_html_e( 'Payment', 'cbs' ); ?></div> >
+                    <div class="cbs-tab cbs-confirm-tab"><?php esc_html_e( 'Confirmation', 'cbs' ); ?></div>
+                </div>
 
                 <div class="confirm-area content">
                     <h3>Thanks for your confirmation</h3>
