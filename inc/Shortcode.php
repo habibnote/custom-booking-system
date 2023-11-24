@@ -53,7 +53,7 @@ class Shortcode{
                         ?>
                     </div>
                     <div class="right-area">
-                        <div class="cbs-hour disable"><?php esc_html_e( 'Afrernoon', 'cbs' ); ?></div>
+                        <div class="cbs-hour"><?php esc_html_e( 'Afrernoon', 'cbs' ); ?></div>
                         <?php 
 
                             $i = 0;
@@ -235,7 +235,7 @@ class Shortcode{
                     ?>
                 </div>
                 <div class="right-area">
-                    <div class="cbs-hour disable"><?php esc_html_e( 'Afrernoon', 'cbs' ); ?></div>
+                    <div class="cbs-hour"><?php esc_html_e( 'Afrernoon', 'cbs' ); ?></div>
                     <?php 
 
                         $i = 0;
