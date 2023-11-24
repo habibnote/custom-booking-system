@@ -1,7 +1,16 @@
 jQuery(function($){
 
     $(document).ready(function () {
-        // $(".cbs-room").hide();
+        
+
+        //toggle room
+        function cbs_room_toggle() {
+            $(".cbs-room").hide();
+            $('.cbs-hour p').on('click', function () {
+                $(this).next('.cbs-room').slideToggle();
+            });
+        }
+        cbs_room_toggle();
 
         //calender ajax
         $('#calendar').datepicker({
@@ -23,6 +32,7 @@ jQuery(function($){
                     if(response) {
 
                         $('.hour-picker').empty().append(response);
+                        cbs_room_toggle();
                     }
                     console.log(response);
                 });
