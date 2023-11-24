@@ -194,7 +194,20 @@ class Shortcode{
 
                 if ( $cart_item['product_id'] == $product_id ) {
                     WC()->cart->remove_cart_item( $cart_item_key );
-                    wp_send_json_success();
+
+
+                    $cart       = WC()->cart;
+                    $cart->calculate_totals();
+
+                    $cart_total = wc_price( $cart->subtotal ); //subtotal
+                    $total      = wc_price( $cart->total ); //grand total
+
+                    wp_send_json_success(
+                        [
+                            'subtotal'  =>  $cart_total,
+                            'total'     => $total
+                        ]
+                    );
                     break;
                 }
             }

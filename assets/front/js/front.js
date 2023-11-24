@@ -38,7 +38,7 @@ jQuery(function($){
     });
 });
 
-//review page
+//Remove cart product form button ajax
 jQuery(function($){
     $(document).ready(function () {
         $('.cbs-btn').on('click', function(){
@@ -53,6 +53,11 @@ jQuery(function($){
 
                 if(response.success) {
                     $('#'+productId).closest('.cbs-single-slot').hide();
+
+                    //append all price
+                    $('.cbs-subtotal-cost').empty().append(response.data.subtotal);
+                    $('.cbs-total-cost').empty().append(response.data.total);
+                    
                 }
             });
         });

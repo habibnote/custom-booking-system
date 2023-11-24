@@ -49,7 +49,7 @@
                 <div class="cbs-total-and-discount-code-area">
                     <div class="cbs-total-area">
                         <div class="cbs-single-cost cbs-sub-total-label">
-                            <label><?php esc_html_e( 'Total Cost', 'cbs' );?></label>
+                            <label><?php esc_html_e( 'SubTotal Cost', 'cbs' );?></label>
                             <?php 
                                 $cart       = WC()->cart;
                                 $cart_total = wc_price( $cart->subtotal );
@@ -76,7 +76,7 @@
 
                             ?>
 
-                            <span><?php echo wp_kses_post( $cart_total ) ?></span>
+                            <span class="cbs-subtotal-cost"><?php echo wp_kses_post( $cart_total ) ?></span>
                         </div>
                         <div class="cbs-single-cost discount-code-area">
                             <div class="cbs-label">
@@ -96,7 +96,7 @@
                             </div>
                         </div>
                         <div class="cbs-single-cost cbs-total-price">
-                            <p>Total : <span> <?php echo wp_kses_post( $total ); ?> </span></p>
+                            <p>Total : <span class="cbs-total-cost"> <?php echo wp_kses_post( $total ); ?> </span></p>
                         </div>
                     </div>
                 </div>
