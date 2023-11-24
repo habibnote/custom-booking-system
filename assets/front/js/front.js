@@ -2,7 +2,6 @@ jQuery(function($){
 
     $(document).ready(function () {
         
-
         //toggle room
         function cbs_room_toggle() {
             $(".cbs-room").hide();
@@ -151,7 +150,7 @@ jQuery(function($){
     $(document).ready(function () {
         $('.cbs-btn').on('click', function(){
             
-            let productId = $(this).attr('product-id');
+            let productId = $(this).attr('id');
 
             $.post(CBS_ajax.url, {
                 action: 'cbs_remove_product_from_cart',
@@ -160,7 +159,7 @@ jQuery(function($){
             }, function(response) {
 
                 if(response.success) {
-                    $(this).closest('.cbs-single-slot').hide();
+                    $('#'+productId).closest('.cbs-single-slot').hide();
                 }
             });
         });

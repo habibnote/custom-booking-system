@@ -31,7 +31,7 @@
                     </div>
                     /
                     <div class="cbs-remove-room">
-                        <button class="cbs-btn" product-id="<?php esc_html_e( $product_id );?>"><?php esc_html_e( 'Remove', 'cbs' ); ?></button>
+                        <button class="cbs-btn" id="<?php esc_html_e( $product_id );?>"><?php esc_html_e( 'Remove', 'cbs' ); ?></button>
                     </div>
                 </div>
                 <?php 
