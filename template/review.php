@@ -41,11 +41,11 @@
     
     <div class="cbs-total-and-discount-code-area">
         <div class="cbs-total-area">
-            <div class="cbs-sub-total-label">
+            <div class="cbs-single-cost cbs-sub-total-label">
                 <label><?php esc_html_e( 'Total Cost', 'cbs' );?></label>
                 <span>$ 12</span>
             </div>
-            <div class="discount-code-area">
+            <div class="cbs-single-cost discount-code-area">
                 <div class="cbs-label">
                     <label><?php esc_html_e( 'Discount Code', 'cbs' ); ?></label>
                     <input type="text">
@@ -55,7 +55,7 @@
                     <span> - $ 8</span>
                 </div>
             </div>
-            <div class="cbs-total-price">
+            <div class="cbs-single-cost cbs-total-price">
                 <p>Total : <span> $ 4 </span></p>
             </div>
         </div>
