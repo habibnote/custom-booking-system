@@ -196,9 +196,13 @@
     justify-content: flex-end;
 }
 /*==END CODE STYLE==*/
-
-.all-button{
+.cbs-all-button{
     display:flex;
     align-items: center;
     justify-content: space-between;
+}
+.cbs-next-btn-area{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }

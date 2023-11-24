@@ -76,8 +76,9 @@ class Shortcode{
                 </div>
             </div>
 
-            <div class="all-button">
-                <div class="next-btn-area">
+            <div class="cbs-all-button">
+                <div class="empty"></div>
+                <div class="cbs-next-btn-area">
                     <a href="http://localhost:10014/review/"> 
                         <button> 
                             <?php esc_html_e( 'Next', 'esc' ); ?>
@@ -104,15 +105,15 @@ class Shortcode{
                     <?php include_once( CBS_DIR . "/template/review.php" );?>
                 </div>
 
-                <div class="all-button">
-                    <div class="prev-area">
+                <div class="cbs-all-button">
+                    <div class="cbs-prev-btn-area">
                         <a href="http://localhost:10014/booking/">
                             <button> 
                                 <?php esc_html_e( 'Prev', 'cbs' );?>
                             </button>
                         </a>
                     </div>
-                    <div class="next-btn-area">
+                    <div class="cbs-next-btn-area">
                         <a href="http://localhost:10014/payment/">
                              <button>
                                 <?php esc_html_e( 'Next', 'cbs' );?>
@@ -141,7 +142,7 @@ class Shortcode{
                 </div>
 
                 <div class="all-button">
-                    <div class="prev-area">
+                    <div class="cbs-prev-btn-area">
                         <a href="http://localhost:10014/review/">
                             <button>
                                 <?php esc_html_e( 'Prev', 'cbs' );?>
