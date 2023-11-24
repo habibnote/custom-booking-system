@@ -82,11 +82,8 @@ class Shortcode{
             </div>
 
             <div class="all-button">
-                <div class="prev-area">
-                    <button type="button" id="btn">Prev</button>
-                </div>
                 <div class="btn-area">
-                    <button type="button" id="btn">Next</button>
+                    <a href="http://localhost:10014/review/">Next</a>
                 </div>
             </div>
 
@@ -109,16 +106,16 @@ class Shortcode{
                     <div class="cbs-tab cbs-confirm-tab"><?php esc_html_e( 'Confirmation', 'cbs' ); ?></div>
                 </div>
 
-                <div class="review-area content">
+                <div class="review-area-content">
                     <?php include_once( CBS_DIR . "/template/review.php" );?>
                 </div>
 
                 <div class="all-button">
                     <div class="prev-area">
-                        <button type="button" id="btn">Prev</button>
+                        <a href="http://localhost:10014/booking/">Prev</a>
                     </div>
                     <div class="btn-area">
-                        <button type="button" id="btn">Next</button>
+                        <a href="http://localhost:10014/payment/">Next</a>
                     </div>
                 </div>
 
@@ -142,16 +139,16 @@ class Shortcode{
                     <div class="cbs-tab cbs-confirm-tab"><?php esc_html_e( 'Confirmation', 'cbs' ); ?></div>
                 </div>
 
-                <div class="payment-area content">
+                <div class="payment-area-content">
                     <?php include_once( CBS_DIR . "/template/payment.php" );?>
                 </div>
 
                 <div class="all-button">
                     <div class="prev-area">
-                        <button type="button" id="btn">Prev</button>
+                        <a href="http://localhost:10014/review/"></a>
                     </div>
                     <div class="btn-area">
-                        <button type="button" id="btn">Next</button>
+                        <a href="http://localhost:10014/confirmation/"></a>
                     </div>
                 </div>
 
