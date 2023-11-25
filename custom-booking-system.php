@@ -58,16 +58,8 @@ final class CBS {
         new Src\Shortcode();
         new Src\Ajax();
         new Src\User();
+        new Src\Test();
     }
-
-    /**
-     * 
-     */
-    // function custom_override_checkout_fields($fields) {
-    //     unset($fields['billing']);
-    //     unset($fields['shipping']);
-    //     return $fields;
-    // }
 
     /**
      * Load Front Assets

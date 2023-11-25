@@ -9,6 +9,14 @@ class User{
      */
     function __construct() {
         register_activation_hook( CBS, [$this,'cbs_create_custom_user'] );
+        add_action( 'user_register', [$this, 'cbs_set_user_registration_date'] );
+    }
+
+    /**
+     * Set current date
+     */
+    function cbs_set_user_registration_date( $user_id ) {
+        update_user_meta( $user_id, 'cbs_registration_date', time() );
     }
 
     /**
