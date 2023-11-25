@@ -57,6 +57,7 @@ final class CBS {
         new Src\Admin();
         new Src\Shortcode();
         new Src\Ajax();
+        new Src\User();
     }
 
     /**

@@ -8,7 +8,7 @@ class User{
      * Class constructor
      */
     function __construct() {
-        register_activation_hook( CBS, 'cbs_create_custom_user' );
+        register_activation_hook( CBS, [$this,'cbs_create_custom_user'] );
     }
 
     /**
