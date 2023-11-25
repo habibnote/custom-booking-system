@@ -102,7 +102,11 @@ class Shortcode{
                 <?php include_once( CBS_DIR . "/template/tab-menu.php" );?>
 
                 <div class="review-area-content">
-                    <?php include_once( CBS_DIR . "/template/review.php" );?>
+                    <?php
+                        if( ! is_admin() ) {
+                            include_once( CBS_DIR . "/template/review.php" );
+                        } 
+                    ?>
                 </div>
 
                 <div class="cbs-all-button">

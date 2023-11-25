@@ -76,10 +76,24 @@ final class CBS {
             wp_enqueue_script( 'cbs-front-js', plugins_url( 'assets/front/js/front.js', __FILE__ ), ['jquery','jquery-ui-datepicker'], time(), true );
             wp_enqueue_script( 'cbs-ajax-js', plugins_url( 'assets/front/js/ajax.js', __FILE__ ), ['jquery'], time(), true );
 
+            /**
+             * Current user registration date
+             */
+            $cbs_user_id            = get_current_user_id();
+            $registration_date      = get_user_meta( $cbs_user_id, 'cbs_registration_date', true );
+            
+            if( $registration_date ) {
+                $cbs_registration_date  = date( "Y-m-d", $registration_date );
+            }else{
+                $cbs_registration_date  = '';
+            }
+
+
             //put data into javascript file
             wp_localize_script( 'cbs-front-js', 'CBS_ajax', array(
                 'url'       => admin_url( 'admin-ajax.php' ),
                 'nonce'     => wp_create_nonce( 'cbs_nonce' ),
+                'user_date' => $cbs_registration_date
             ) );
             wp_localize_script( 'cbs-ajax-js', 'CBS_ajax', array(
                 'url'       => admin_url( 'admin-ajax.php' ),

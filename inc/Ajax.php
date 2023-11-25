@@ -39,6 +39,7 @@ class Ajax{
                     [
                         'message'   => 'Coupon is Applied',
                         'amount'    => $discount_amount,
+                        
                     ]
                 );
             }else{

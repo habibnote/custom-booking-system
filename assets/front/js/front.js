@@ -1,5 +1,7 @@
 jQuery(function($){
 
+    console.log( CBS_ajax.user_date );
+
     $(document).ready(function () {
         
         //toggle room
@@ -64,7 +66,7 @@ jQuery(function($){
     });
 });
 
-//review page
+//Apply coupon code
 jQuery(function($){
     $(document).ready(function () {
         
