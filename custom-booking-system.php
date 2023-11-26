@@ -85,6 +85,8 @@ final class CBS {
 
             $cbs_user_info  = get_user_by( 'ID', $cbs_user_id );
 
+            $cbs_subscribe_date = $cbs_subscribe_label = $cbs_subscribe_status = '';
+
             if ( $cbs_user_info ) {
 
                 //get user email
