@@ -97,6 +97,9 @@ final class CBS {
                 $cbs_subscribe_status   = $cbs_memberRecord->account_state ?? '';
             }
 
+            $cbs_start_date = '2023-10-11';
+            $cbs_end_date   = '2023-10-12';
+
             // label = 2 basic, label = 3 pro, label = 4 premium
             if( $cbs_subscribe_label == 2 && $cbs_subscribe_status == 'active' ) {
                 $cbs_start_date = $cbs_subscribe_date;  
@@ -125,7 +128,7 @@ final class CBS {
                 'user_start'=> $cbs_start_date,
                 'user_end'  => $cbs_end_date,
             ) );
-            wp_localize_script( 'cbs-ajax-js', 'CBS_ajax', array(
+            wp_localize_script( 'cbs-ajax-js', 'CBS_ajax_a', array(
                 'url'       => admin_url( 'admin-ajax.php' ),
                 'nonce'     => wp_create_nonce( 'cbs_nonce' ),
             ) );

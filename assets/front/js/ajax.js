@@ -7,9 +7,9 @@ jQuery(function($){
             let productId = $(this).attr('id');
             
             //ajax request
-            $.post(CBS_ajax.url, {
+            $.post(CBS_ajax_a.url, {
                 action: 'cbs_add_product_into_cart',
-                _nonce: CBS_ajax.nonce,
+                _nonce: CBS_ajax_a.nonce,
                 productId: productId,
             }, function(response) {
                 if(response.success) {

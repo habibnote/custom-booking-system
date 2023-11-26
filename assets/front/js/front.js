@@ -1,6 +1,8 @@
 jQuery(function($){
 
     $(document).ready(function () {
+
+        console.log( CBS_ajax );
         
         //toggle room
         function cbs_room_toggle() {
