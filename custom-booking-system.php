@@ -77,15 +77,29 @@ final class CBS {
             wp_enqueue_script( 'cbs-ajax-js', plugins_url( 'assets/front/js/ajax.js', __FILE__ ), ['jquery'], time(), true );
 
             /**
-             * Current user registration date
+             * Current user subscription date
              */
-            $cbs_user_id            = get_current_user_id();
-            $registration_date      = get_user_meta( $cbs_user_id, 'cbs_registration_date', true );
-            
-            if( $registration_date ) {
-                $cbs_registration_date  = date( "Y-m-d", $registration_date );
-            }else{
-                $cbs_registration_date  = '';
+            global $wpdb;
+
+            $cbs_user_id    = get_current_user_id();
+            $cbs_user_info  = get_user_by( 'ID', $cbs_user_id );
+
+            if ( $cbs_user_info ) {
+
+                //get user email
+                $user_email         = $cbs_user_info->user_email;
+                //get Member record from Simple WordPress Membership
+                $cbs_memberRecord   = $wpdb->get_row("SELECT * FROM `wp_swpm_members_tbl` WHERE email=$user_email");
+
+                //get Data
+                $cbs_subscribe_date     = $cbs_memberRecord->subscription_starts;
+                $cbs_subscribe_label    = $cbs_memberRecord->membership_level;
+                $cbs_subscribe_status   = $cbs_memberRecord->account_state;
+            }
+
+            if( $cbs_subscribe_label == 2 && $cbs_subscribe_status == 'active' ) {
+                $cbs_start_date = $cbs_subscribe_date;
+                $cbs_end_date   = $cbs_subscribe_date
             }
 
 
@@ -93,7 +107,7 @@ final class CBS {
             wp_localize_script( 'cbs-front-js', 'CBS_ajax', array(
                 'url'       => admin_url( 'admin-ajax.php' ),
                 'nonce'     => wp_create_nonce( 'cbs_nonce' ),
-                'user_date' => $cbs_registration_date
+                'user_date' => ''
             ) );
             wp_localize_script( 'cbs-ajax-js', 'CBS_ajax', array(
                 'url'       => admin_url( 'admin-ajax.php' ),

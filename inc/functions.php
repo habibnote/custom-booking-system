@@ -1,5 +1,8 @@
 <?php 
 
+/**
+ * order products
+ */
 if( ! function_exists( 'cbs_all_ordered_product' ) ) {
     function cbs_all_ordered_product() {
 
@@ -30,6 +33,9 @@ if( ! function_exists( 'cbs_all_ordered_product' ) ) {
     }
 }
 
+/**
+ * Product loop page
+ */
 if( ! function_exists( 'cbs_slot_loop' ) ) {
     function cbs_slot_loop( $term_name, $meta_value ) {
 
@@ -76,5 +82,24 @@ if( ! function_exists( 'cbs_slot_loop' ) ) {
             echo "<p>No Room Avaiable here</p>";
         }
             
+    }
+}
+
+
+/**
+ * date
+ */
+if( ! function_exists( 'cbs_get_after_date' ) ) {
+    function cbs_get_after_date( $date, $later ) {
+
+        //P6W , P11W, P6M
+
+        $dateTime = new DateTime( $date );
+
+        // Add 6 weeks to the date
+        $dateTime->add( new DateInterval( $later ) );
+
+        // Format the resulting date as a string
+        return $dateTime->format( 'Y-m-d' );
     }
 }

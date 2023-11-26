@@ -9,14 +9,14 @@ class Test{
     }
 
     function habib_test(){
-        echo "<pre>";
+        global $wpdb;
+
+        echo "<pre>";  
         
-        $registration_date = get_user_meta( 5 , 'cbs_registration_date', true );
-
-        $date = date( "Y-m-d", $registration_date );
-
-        echo $date;
+        
 
         echo "</pre>";
+
+
     }
 }
