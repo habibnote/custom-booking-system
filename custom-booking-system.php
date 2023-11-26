@@ -82,6 +82,7 @@ final class CBS {
             global $wpdb;
 
             $cbs_user_id    = get_current_user_id();
+
             $cbs_user_info  = get_user_by( 'ID', $cbs_user_id );
 
             if ( $cbs_user_info ) {
@@ -89,7 +90,7 @@ final class CBS {
                 //get user email
                 $user_email         = $cbs_user_info->user_email;
                 //get Member record from Simple WordPress Membership
-                $cbs_memberRecord   = $wpdb->get_row("SELECT * FROM `wp_swpm_members_tbl` WHERE email=$user_email");
+                $cbs_memberRecord   = $wpdb->get_row("SELECT * FROM `wp_swpm_members_tbl` WHERE email='$user_email'");
 
                 //get Data
                 $cbs_subscribe_date     = $cbs_memberRecord->subscription_starts ?? '';
