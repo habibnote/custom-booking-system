@@ -18,7 +18,7 @@ jQuery(function($){
             showOtherMonths:true,
             dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
             dateFormat: 'yymmdd',
-            minDate: new Date(CBS_ajax.user_date), maxDate: new Date("2023-11-30"),
+            minDate: new Date(CBS_ajax.user_start), maxDate: new Date(CBS_ajax.user_end),
             onSelect: function(date) {
 
                 //ajax request

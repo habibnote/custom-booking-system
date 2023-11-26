@@ -92,22 +92,38 @@ final class CBS {
                 $cbs_memberRecord   = $wpdb->get_row("SELECT * FROM `wp_swpm_members_tbl` WHERE email=$user_email");
 
                 //get Data
-                $cbs_subscribe_date     = $cbs_memberRecord->subscription_starts;
-                $cbs_subscribe_label    = $cbs_memberRecord->membership_level;
-                $cbs_subscribe_status   = $cbs_memberRecord->account_state;
+                $cbs_subscribe_date     = $cbs_memberRecord->subscription_starts ?? '';
+                $cbs_subscribe_label    = $cbs_memberRecord->membership_level ?? '';
+                $cbs_subscribe_status   = $cbs_memberRecord->account_state ?? '';
             }
 
+            // label = 2 basic, label = 3 pro, label = 4 premium
             if( $cbs_subscribe_label == 2 && $cbs_subscribe_status == 'active' ) {
-                $cbs_start_date = $cbs_subscribe_date;
-                $cbs_end_date   = $cbs_subscribe_date
+                $cbs_start_date = $cbs_subscribe_date;  
+                $cbs_end_date   = cbs_get_after_date( $cbs_subscribe_date, 'P6W' );
+            }
+            else if( $cbs_subscribe_label == 3 && $cbs_subscribe_status == 'active' ) {
+                $cbs_start_date = $cbs_subscribe_date;  
+                $cbs_end_date   = cbs_get_after_date( $cbs_subscribe_date, 'P11W' );
+            }
+            else if( $cbs_subscribe_label == 4 && $cbs_subscribe_status == 'active' ) {
+                $cbs_start_date = $cbs_subscribe_date;  
+                $cbs_end_date   = cbs_get_after_date( $cbs_subscribe_date, 'P6M' );
             }
 
+            $user = wp_get_current_user();
+
+            if ( in_array('administrator', $user->roles) ) {
+                $cbs_start_date = '';
+                $cbs_end_date   = '';
+            }
 
             //put data into javascript file
             wp_localize_script( 'cbs-front-js', 'CBS_ajax', array(
                 'url'       => admin_url( 'admin-ajax.php' ),
                 'nonce'     => wp_create_nonce( 'cbs_nonce' ),
-                'user_date' => ''
+                'user_start'=> $cbs_start_date,
+                'user_end'  => $cbs_end_date,
             ) );
             wp_localize_script( 'cbs-ajax-js', 'CBS_ajax', array(
                 'url'       => admin_url( 'admin-ajax.php' ),

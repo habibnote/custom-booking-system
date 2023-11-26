@@ -92,7 +92,7 @@ if( ! function_exists( 'cbs_slot_loop' ) ) {
 if( ! function_exists( 'cbs_get_after_date' ) ) {
     function cbs_get_after_date( $date, $later ) {
 
-        //P6W , P11W, P6M
+        //P6W, P11W, P6M
 
         $dateTime = new DateTime( $date );
 
